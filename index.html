@@ -134,7 +134,7 @@ button{
 
     <div class="error" id="errorBox"></div>
 
-    <!-- INFO SECTIONS FOR MANAGER -->
+    <!-- INFO SECTIONS -->
     <div class="section">
         <h3>How This Page Works</h3>
         <p>
@@ -236,11 +236,13 @@ function openOffer(num, btn){
     updateUI(email);
 
     btn.disabled = true;
-    let count = 5;
+
+    // 🔥 RANDOM COUNTDOWN (3–10 seconds only)
+    let count = Math.floor(Math.random() * 8) + 3;
 
     let interval = setInterval(()=>{
         if(count > 0){
-            btn.innerText = `Connecting in ${count}... ✅`;
+            btn.innerText = `Connecting in ${count} seconds... ⏳`;
             count--;
         }else{
             clearInterval(interval);
